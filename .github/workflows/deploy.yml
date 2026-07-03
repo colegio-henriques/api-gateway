@@ -47,3 +47,9 @@ jobs:
           region: ${{ env.REGION }}
           image: europe-west1-docker.pkg.dev/${{ env.PROJECT_ID }}/ch-registry/${{ env.SERVICE_NAME }}:${{ github.sha }}
           flags: '--allow-unauthenticated'
+          env_vars: |
+            IAM_SERVICE_URL=https://iam-service-577474884701.europe-west1.run.app
+            ACADEMIC_SERVICE_URL=https://academic-service-577474884701.europe-west1.run.app
+            FINANCE_SERVICE_URL=https://finance-service-577474884701.europe-west1.run.app
+            DOCUMENT_SERVICE_URL=https://document-service-577474884701.europe-west1.run.app
+            FRONTEND_URL=https://portal-frontend-577474884701.europe-west1.run.app
