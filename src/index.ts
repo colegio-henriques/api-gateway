@@ -27,7 +27,10 @@ app.get('/health', (req: Request, res: Response) => {
 // 1. Encaminhar tráfego de Identidade/Autenticação para o iam-service (Porta 8080)
 app.use('/auth', createProxyMiddleware({ 
   target: process.env.IAM_SERVICE_URL || 'http://localhost:8080', 
-  changeOrigin: true 
+  changeOrigin: true,
+  pathRewrite: {
+    '^/auth': '',
+  }
 }));
 
 app.use('/users', createProxyMiddleware({ 
